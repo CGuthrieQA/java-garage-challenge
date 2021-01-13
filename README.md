@@ -11,3 +11,21 @@
 4. Garage should have methods that add a Vehicle, remove a Vehicle by its ID or its type, fix a Vehicle (which calculates the bill) and to empty the Garage.
 
 5. Garage should have a method to remove multiple Vehicles by their type.
+
+## Extended
+
+* we can check the Type of an object using typeOf() - have a look into this method and implement it instead of switch/case statements
+
+```java
+if ( i.getClass().getSimpleName().equals("Car") ) {
+	bill = 1 * i.seats() * i.wheels();
+} else if ( i.getClass().getSimpleName().equals("Motorbike") ) {
+	bill = 2 * i.seats() * i.wheels();
+} else if ( i.getClass().getSimpleName().equals("Bus") ) {
+	bill = 3 * i.seats() * i.wheels();
+} 
+```
+
+* maybe it's worth making a diagram for this, too!
+
+![diagram](diagram.png)

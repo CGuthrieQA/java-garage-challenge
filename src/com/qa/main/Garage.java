@@ -12,18 +12,27 @@ public class Garage {
 		for ( Vehicle i : vehicleList ) {
 			
 			int bill = 0;
+		
 			
-			switch(i.type()) {
-				case "car": 
-					bill = 1 * i.seats() * i.wheels();
-					break;
-				case "motorbike": 
-					bill = 2 * i.seats() * i.wheels();
-					break;
-				case "bus": 
-					bill = 3 * i.seats() * i.wheels();
-					break;
-			}
+			if ( i.getClass().getSimpleName().equals("Car") ) {
+				bill = 1 * i.seats() * i.wheels();
+			} else if ( i.getClass().getSimpleName().equals("Motorbike") ) {
+				bill = 2 * i.seats() * i.wheels();
+			} else if ( i.getClass().getSimpleName().equals("Bus") ) {
+				bill = 3 * i.seats() * i.wheels();
+			} 
+			
+//			switch(i.type()) {
+//				case "car": 
+//					bill = 1 * i.seats() * i.wheels();
+//					break;
+//				case "motorbike": 
+//					bill = 2 * i.seats() * i.wheels();
+//					break;
+//				case "bus": 
+//					bill = 3 * i.seats() * i.wheels();
+//					break;
+//			}
 			
 			System.out.println(i + " Bill: £" + bill);
 			
@@ -37,21 +46,8 @@ public class Garage {
 	
 	public void removeByType(String type) {
 		
-		// create a placeholder list
-		List<Vehicle> removeList = new ArrayList<Vehicle>();
+		vehicleList.removeIf( i -> ( i.type().equals(type) ) );
 		
-		for ( Vehicle i : vehicleList) {
-			
-			
-			if ( i.type().equals(type) ) {
-				System.out.println("Removing vehicle " + i);
-			} else {
-				removeList.add(i);
-			}
-			
-		}	
-		
-		vehicleList = removeList;
 		System.out.println(vehicleList);
 		
 	}

@@ -16,9 +16,9 @@ public class Runner {
 		
 		garageManager.calculateBill();
 		
-		garageManager.removeByType("car");
+		garageManager.removeByType("bus");
 		
-		garageManager.fixByType("bus");
+		garageManager.fixByType("car");
 		
 		garageManager.emptyGarage();
 
